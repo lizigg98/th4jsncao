@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Product {
+        constructor(name, price, amount) {
+            this.name = name;
+            this.price = price;
+            this.amount = amount;
+        }
+
+        addProduct(quantity) {
+            this.amount = this.amount + quantity;
+            console.log("Add product success!");
+
+        }
+    }
+    class Customer {
+        constructor(name, quantityOfProducts) {
+            this.name = name;
+            this.quantityOfProducts = quantityOfProducts;
+        }
+
+        buyProduct(product, quantity){
+            if (quantity > product.amount) 
+            return console.log("This product is out of stock");
+
+            product.amount = product.amount - quantity;
+            this.quantityOfProducts = this.quantityOfProducts + quantity;
+            console.log("Buy Success");
+
+        }
+    }
+
+    const shirt = new Product('Áo polo', 150000, 10)
+    console.log(1, shirt);
+    shirt.addProduct(5)
+    console.log(shirt);
+
+    const customer = new Customer('John', 0)
+    customer.buyProduct(shirt, 5);
+    customer.buyProduct(shirt, 2);
+    console.log(customer);
+</script>
+</html>
